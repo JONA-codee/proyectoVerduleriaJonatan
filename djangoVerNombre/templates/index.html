@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Verdulería PB</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Bienvenido a Verdulería PB</h1>
+
+        <!-- Sección de Clientes -->
+        <div class="mt-4">
+            <h2 class="text-primary">Clientes</h2>
+            <ul class="list-group">
+                {% for cliente in clientes %}
+                    <li class="list-group-item">
+                        <strong>Nombre:</strong> {{ cliente.nombre_cliente }} <br>
+                        <strong>Correo:</strong> {{ cliente.correo }} <br>
+                        <strong>Número Cel:</strong> {{ cliente.telefono }}
+                    </li>
+                {% empty %}
+                    <li class="list-group-item list-group-item-warning">No hay clientes disponibles.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Sección de Productos -->
+        <div class="mt-4">
+            <h2 class="text-success">Productos</h2>
+            <ul class="list-group">
+                {% for producto in productos %}
+                    <li class="list-group-item">
+                        <strong>Nombre:</strong> {{ producto.nombre }} <br>
+                        <strong>Descripción:</strong> {{ producto.descripcion }} <br>
+                        <strong>Precio:</strong> ${{ producto.precio }}
+                    </li>
+                {% empty %}
+                    <li class="list-group-item list-group-item-warning">No hay productos disponibles.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- Scripts de Bootstrap (opcional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
